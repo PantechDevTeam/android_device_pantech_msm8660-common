@@ -28,6 +28,8 @@ BOARD_VENDOR := pantech
 # Architecture
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 
 # Audio
 #BOARD_USES_ALSA_AUDIO := true
@@ -38,9 +40,7 @@ TARGET_NEEDS_BLUETOOTH_INIT_DELAY := true
 
 # Board info
 BOARD_HAS_NO_MISC_PARTITION := true
-
-# Charging mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+BOARD_USES_MMCUTILS := true
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DWITH_QCOM_LPA
@@ -53,7 +53,7 @@ BOARD_USES_QCOM_GPS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
-TARGET_NO_RPC := true
+#TARGET_NO_RPC := true
 
 # Graphics
 #BOARD_HAVE_OLD_ION_API := true
@@ -61,12 +61,10 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 TARGET_NO_HW_VSYNC := true
 #TARGET_QCOM_DISPLAY_VARIANT := caf
 
-# Overlay
-TARGET_USES_OVERLAY := true
-
 # Platform
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
+#TARGET_ARCH_VARIANT_CPU := cortex-a8
 
 # QCOM Scorpion optimizations
 TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
@@ -74,14 +72,11 @@ TARGET_USE_SCORPION_PLD_SET := true
 TARGET_SCORPION_BIONIC_PLDOFFS := 6
 TARGET_SCORPION_BIONIC_PLDSIZE := 128
 
-# Radio info
+# Target info
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL := false
 TARGET_NO_RADIOIMAGE := true
-
-# Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_USES_OVERLAY := true
 
 # Time - Add support for kernel user helpers and gettimeofday() in bionic
 #KERNEL_HAS_GETTIMEOFDAY_HELPER := true
-
-# Compile tiny android by default
-#BUILD_TINY_ANDROID := true
