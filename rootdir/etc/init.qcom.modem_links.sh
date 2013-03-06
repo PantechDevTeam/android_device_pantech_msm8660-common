@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2010, The Linux Foundation. All rights reserved.
+# Copyright (c) 2010, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -10,7 +10,7 @@
 #       copyright notice, this list of conditions and the following
 #       disclaimer in the documentation and/or other materials provided
 #       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
+#     * Neither the name of Code Aurora Forum, Inc. nor the names of its
 #       contributors may be used to endorse or promote products derived
 #       from this software without specific prior written permission.
 #
@@ -73,13 +73,18 @@ done
 case $linksNeeded in
    1)
       cd /firmware/image
+      #20110411 choiseulkee chg for FEATURE_SKY
+      #mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
+      mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p13 /system
 
       #Adjust permissions for select files
       chmod 4755 /system/bin/diag_mdlog
       chmod 4755 /system/bin/btwlancoex
       chmod 0755 /system/bin/ip
-      chmod 4755 /system/bin/usbhub
-      chmod  755 /system/bin/usbhub_init
+# pz1945 :If you do not use GPIO 56 for usbhub
+# you can remove that app.
+#      chmod 4755 /system/bin/usbhub
+#      chmod  755 /system/bin/usbhub_init
 
       case `ls modem.mdt 2>/dev/null` in
          modem.mdt)
@@ -113,6 +118,10 @@ case $linksNeeded in
             log -p w -t PIL 8660 device but no tzapps image found;;
       esac
 
+      #remount file system as read only
+      #20110411 choiseulkee chg for FEATURE_SKY
+      #mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+      mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p13 /system
       break;;
 
    *)
