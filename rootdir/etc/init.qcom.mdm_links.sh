@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2011, The Linux Foundation. All rights reserved.
+# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -10,7 +10,7 @@
 #       copyright notice, this list of conditions and the following
 #       disclaimer in the documentation and/or other materials provided
 #       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
+#     * Neither the name of Code Aurora Forum, Inc. nor the names of its
 #       contributors may be used to endorse or promote products derived
 #       from this software without specific prior written permission.
 #
@@ -32,6 +32,10 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
+#20110411 choiseulkee chg for FEATURE_SKY
+#mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
+mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p13 /system
+
 mkdir /system/etc/firmware/misc_mdm
 chmod 771  /system/etc/firmware/misc_mdm
 chown system.system /system/etc/firmware/misc_mdm
@@ -48,12 +52,8 @@ ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
 
-case `getprop ro.baseband` in
-   svlte2a)
-    sleep 5
-    break;;
-   *)
-    break;;
-esac
+#20110411 choiseulkee chg for FEATURE_SKY
+#mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p13 /system
 
 cd /
