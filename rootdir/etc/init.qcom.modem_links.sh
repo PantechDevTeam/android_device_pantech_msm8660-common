@@ -73,18 +73,21 @@ done
 case $linksNeeded in
    1)
       cd /firmware/image
-      #20110411 choiseulkee chg for FEATURE_SKY
-      #mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
+
+      #FEATURE_SKY: remount file system as read/write
       mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p13 /system
 
       #Adjust permissions for select files
       chmod 4755 /system/bin/diag_mdlog
       chmod 4755 /system/bin/btwlancoex
       chmod 0755 /system/bin/ip
-# pz1945 :If you do not use GPIO 56 for usbhub
-# you can remove that app.
-#      chmod 4755 /system/bin/usbhub
-#      chmod  755 /system/bin/usbhub_init
+
+      # pz1945: If you do not use GPIO 56 for usbhub
+      # you can remove that app.
+#     if [ "`getprop ro.product.device`" != "PantechP9070" ]; then
+#       chmod 4755 /system/bin/usbhub
+#       chmod 755 /system/bin/usbhub_init
+#     fi
 
       case `ls modem.mdt 2>/dev/null` in
          modem.mdt)
@@ -118,9 +121,7 @@ case $linksNeeded in
             log -p w -t PIL 8660 device but no tzapps image found;;
       esac
 
-      #remount file system as read only
-      #20110411 choiseulkee chg for FEATURE_SKY
-      #mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+      #FEATURE_SKY: remount file system as read only
       mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p13 /system
       break;;
 
