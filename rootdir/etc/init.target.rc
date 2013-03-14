@@ -34,27 +34,9 @@ on early-init
 # on emmc mount the partition containing firmware
 on emmc-fs
     mkdir /tombstones 0771 system system
-    wait /dev/block/mmcblk0p13
-    mount ext4 /dev/block/mmcblk0p13 /system rw barrier=1
-    wait /dev/block/mmcblk0p15
-    mount ext4 /dev/block/mmcblk0p15 /persist nosuid nodev noatime barrier=1
-    wait /dev/block/mmcblk0p14
-    mount ext4 /dev/block/mmcblk0p14 /data nosuid nodev noatime barrier=1
-    mount ext4 /dev/block/mmcblk0p14 /data nosuid nodev noatime remount noauto_da_all
-    mount ext4 /dev/block/mmcblk0p14 /data nosuid nodev noatime remount discard
-    wait /dev/block/mmcblk0p16
-    mount ext4 /dev/block/mmcblk0p16 /cache nosuid nodev noatime barrier=1
-    wait /dev/block/mmcblk0p25
-    wait /dev/block/mmcblk0p27
-    wait /dev/block/mmcblk0p17
-    mount ext4 /dev/block/mmcblk0p17 /tombstones nosuid nodev barrier=1
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/mdm 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /firmware 0771 system system
-    wait /dev/block/mmcblk0p1
-    mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
-    exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
+    wait /dev/block/platform/msm_sdcc.1/by-num/p13
+    wait /dev/block/platform/msm_sdcc.1/by-num/p14
+
 #on fs
     mount_all fstab.qcom
 
@@ -62,20 +44,20 @@ on emmc-fs
     # these partition flashed on the device. Failure to mount any partition in fstab file
     # results in failure to launch late-start class.
 
- #   wait /dev/block/platform/msm_sdcc.1/by-num/p15
-  #  mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p15 /cache nosuid nodev barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-num/p16
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p16 /cache nosuid nodev barrier=1
 
-   # wait /dev/block/platform/msm_sdcc.1/by-num/p14
-    #mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p14 /persist nosuid nodev barrier=1
+    wait /dev/block/platform/msm_sdcc.1/by-num/p15
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p15 /persist nosuid nodev barrier=1
 
 #on post-fs-data
-#   mkdir /data/tombstones 0771 system system
-#   mkdir /tombstones/modem 0771 system system
-#   mkdir /tombstones/mdm 0771 system system
-#   mkdir /tombstones/lpass 0771 system system
-#   wait /dev/block/mmcblk0p1
-#   mount vfat /dev/block/mmcblk0p1 /firmware ro shortname=lower
-#   start modem_link
+   mkdir /data/tombstones 0771 system system
+   mkdir /tombstones/modem 0771 system system
+   mkdir /tombstones/mdm 0771 system system
+   mkdir /tombstones/lpass 0771 system system
+   wait /dev/block/platform/msm_sdcc.1/by-num/p1
+   mount vfat /dev/block/platform/msm_sdcc.1/by-num/p1 /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
+   start modem_link
 
 on boot
 #   start qcamerasvr
@@ -92,13 +74,11 @@ service kickstart /system/bin/qcks l
 on property:ro.baseband=csfb
     wait /dev/ttyHSL1
     mkdir /data/qcks 0770 system system
-    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
     start kickstart
 
 on property:ro.baseband=svlte2a
     wait /dev/ttyHSL1
     mkdir /data/qcks 0770 system system
-    exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
     start kickstart
 
 service modem_link /system/bin/sh /system/etc/init.qcom.modem_links.sh

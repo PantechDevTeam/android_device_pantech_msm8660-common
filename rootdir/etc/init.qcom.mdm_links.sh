@@ -32,8 +32,7 @@
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
 export PATH
 
-#20110411 choiseulkee chg for FEATURE_SKY
-#mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p12 /system
+#FEATURE_SKY: remount file system as read/write
 mount -t ext4 -o remount,rw,barrier=0 /dev/block/mmcblk0p13 /system
 
 mkdir /system/etc/firmware/misc_mdm
@@ -52,8 +51,7 @@ ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
 
-#20110411 choiseulkee chg for FEATURE_SKY
-#mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p12 /system
+#FEATURE_SKY: remount file system as read only
 mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p13 /system
 
 cd /
