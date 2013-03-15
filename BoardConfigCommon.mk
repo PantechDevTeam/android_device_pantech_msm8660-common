@@ -16,8 +16,6 @@
 
 #----------------------------------------------------------------------
 
-USE_CAMERA_STUB := true
-
 BOARD_VENDOR := pantech
 
 # inherit from pantech qcom-common
@@ -51,7 +49,7 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_VOIP_ENABLED
 # GPS
 BOARD_USES_QCOM_GPS := true
 BOARD_USES_QCOM_LIBRPC := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8660
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 #TARGET_NO_RPC := true
 

@@ -51,6 +51,9 @@ PRODUCT_COPY_FILES += \
 # fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
 
+# GPS
+PRODUCT_PACKAGES += gps.msm8660
+
 # Lpm
 PRODUCT_PACKAGES += \
     lpm.rc \
