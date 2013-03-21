@@ -161,7 +161,7 @@
 
     <EncoderProfile quality="720p" fileFormat="3gp" duration="30">
       <Video codec="h264"
-             bitRate="8000000"
+             bitRate="10000000"
              width="1280"
              height="720"
              frameRate="30" />
