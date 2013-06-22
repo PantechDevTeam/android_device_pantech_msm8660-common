@@ -37,11 +37,6 @@ PRODUCT_COPY_FILES += \
     device/pantech/msm8660-common/prebuilt/system/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
     device/pantech/msm8660-common/prebuilt/system/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw
 
-# Media configuration
-PRODUCT_COPY_FILES += \
-    device/pantech/msm8660-common/media/media_profiles.xml:system/etc/media_profiles.xml \
-    device/pantech/msm8660-common/media/media_codecs.xml:system/etc/media_codecs.xml
-
 # Thermal configuration
 PRODUCT_COPY_FILES += \
     device/pantech/msm8660-common/prebuilt/system/etc/thermald.conf:system/etc/thermald.conf
@@ -94,4 +89,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #----------------------------------------------------------------------
 
 # inherit pantech/qcom-common
-$(call inherit-product-if-exists, device/pantech/qcom-common/qcom-common.mk)
+$(call inherit-product-if-exists, device/pantech/qcom-common/common.mk)

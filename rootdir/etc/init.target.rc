@@ -31,13 +31,7 @@ on early-init
     mkdir /firmware 0771 system system
     symlink /data/tombstones /tombstones
 
-# on emmc mount the partition containing firmware
-on emmc-fs
-    mkdir /tombstones 0771 system system
-    wait /dev/block/platform/msm_sdcc.1/by-num/p13
-    wait /dev/block/platform/msm_sdcc.1/by-num/p14
-
-#on fs
+on fs
     mount_all fstab.qcom
 
     # Keeping following partitions outside fstab file. As user may not have
@@ -50,7 +44,7 @@ on emmc-fs
     wait /dev/block/platform/msm_sdcc.1/by-num/p15
     mount ext4 /dev/block/platform/msm_sdcc.1/by-num/p15 /persist nosuid nodev barrier=1
 
-#on post-fs-data
+on post-fs-data
    mkdir /data/tombstones 0771 system system
    mkdir /tombstones/modem 0771 system system
    mkdir /tombstones/mdm 0771 system system
@@ -60,11 +54,11 @@ on emmc-fs
    start modem_link
 
 on boot
-#   start qcamerasvr
-#service qcamerasvr /system/bin/mm-qcamera-daemon
-#    class late_start
-#    user camera
-#    group camera system inet input
+   start qcamerasvr
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input
 
 service kickstart /system/bin/qcks l
     oneshot

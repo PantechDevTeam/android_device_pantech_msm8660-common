@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2011, Code Aurora Forum. All rights reserved.
+# Copyright (c) 2011, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
@@ -10,7 +10,7 @@
 #       copyright notice, this list of conditions and the following
 #       disclaimer in the documentation and/or other materials provided
 #       with the distribution.
-#     * Neither the name of Code Aurora Forum, Inc. nor the names of its
+#     * Neither the name of The Linux Foundation nor the names of its
 #       contributors may be used to endorse or promote products derived
 #       from this software without specific prior written permission.
 #
@@ -50,6 +50,14 @@ ln -s $MISC_MDM/osbl.mbn /system/etc/firmware/osbl.mbn 2>/dev/null
 ln -s $MISC_MDM/efs1.mbn /system/etc/firmware/efs1.mbn 2>/dev/null
 ln -s $MISC_MDM/efs2.mbn /system/etc/firmware/efs2.mbn 2>/dev/null
 ln -s $MISC_MDM/efs3.mbn /system/etc/firmware/efs3.mbn 2>/dev/null
+
+case `getprop ro.baseband` in
+   svlte2a)
+    sleep 5
+    break;;
+   *)
+    break;;
+esac
 
 #FEATURE_SKY: remount file system as read only
 mount -t ext4 -o remount,ro,barrier=0 /dev/block/mmcblk0p13 /system
