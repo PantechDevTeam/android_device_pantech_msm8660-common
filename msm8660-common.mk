@@ -29,14 +29,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
 
-# Firmware
-PRODUCT_COPY_FILES += \
-    device/pantech/msm8660-common/prebuilt/system/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
-    device/pantech/msm8660-common/prebuilt/system/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
-    device/pantech/msm8660-common/prebuilt/system/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/pantech/msm8660-common/prebuilt/system/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
-    device/pantech/msm8660-common/prebuilt/system/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw
-
 # Thermal configuration
 PRODUCT_COPY_FILES += \
     device/pantech/msm8660-common/prebuilt/system/etc/thermald.conf:system/etc/thermald.conf
