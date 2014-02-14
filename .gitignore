@@ -1,2 +1,5 @@
 *~
 *.bak
+
+# Ignore patches dir
+patches/
