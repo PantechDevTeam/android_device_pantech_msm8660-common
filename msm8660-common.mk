@@ -17,7 +17,7 @@
 #----------------------------------------------------------------------
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS := device/pantech/msm8660-common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/pantech/msm8660-common/overlay
 
 #----------------------------------------------------------------------
 
