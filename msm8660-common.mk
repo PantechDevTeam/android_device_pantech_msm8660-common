@@ -22,8 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += device/pantech/msm8660-common/overlay
 #----------------------------------------------------------------------
 
 # Audio policy
-PRODUCT_COPY_FILES += \
-    device/pantech/msm8660-common/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf
+#PRODUCT_COPY_FILES += device/pantech/msm8660-common/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf
 
 # Bluetooth configuration files
 PRODUCT_COPY_FILES += \
@@ -64,7 +63,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.logs=0 \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
-    ro.sf.lcd_density=240
+    ro.sf.lcd_density=240 \
+    lpa.decode=true
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
