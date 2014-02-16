@@ -63,6 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.logs=0 \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
+    debug.hwc.dynThreshold=1.9 \
     ro.sf.lcd_density=240 \
     lpa.decode=true
 
