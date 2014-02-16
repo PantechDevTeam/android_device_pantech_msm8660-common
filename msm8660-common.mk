@@ -64,7 +64,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0 \
     debug.hwc.dynThreshold=1.9 \
-    ro.sf.lcd_density=240 \
     lpa.decode=true
 
 # Misc
