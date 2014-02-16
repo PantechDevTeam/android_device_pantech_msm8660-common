@@ -25,8 +25,7 @@ DEVICE_PACKAGE_OVERLAYS += device/pantech/msm8660-common/overlay
 #PRODUCT_COPY_FILES += device/pantech/msm8660-common/prebuilt/system/etc/audio_policy.conf:system/etc/audio_policy.conf
 
 # Bluetooth configuration files
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
+#PRODUCT_COPY_FILES += system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
 
 # Thermal configuration
 PRODUCT_COPY_FILES += \
