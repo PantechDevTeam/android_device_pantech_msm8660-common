@@ -35,16 +35,22 @@ PRODUCT_COPY_FILES += device/pantech/msm8660-common/prebuilt/system/etc/thermald
 # fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
 
-# GPS
-PRODUCT_PACKAGES += gps.msm8660
-
 # Lpm
 PRODUCT_PACKAGES += \
     lpm.rc \
     init.qcom.lpm_boot.sh
 
-# Sensors
-PRODUCT_PACKAGES += sensors.msm8660
+# msm8660
+PRODUCT_PACKAGES+= \
+    audio_policy.msm8660 \
+    camera.msm8660 \
+    copybit.msm8660 \
+    gestures.msm8660 \
+    gps.msm8660 \
+    gralloc.msm8660 \
+    hwcomposer.msm8660 \
+    lights.msm8660 \
+    sensors.msm8660
 
 #----------------------------------------------------------------------
 
