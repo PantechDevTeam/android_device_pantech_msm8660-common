@@ -55,6 +55,7 @@ PRODUCT_PACKAGES += \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
     lights.msm8660 \
+    memtrack.msm8660 \
     power.msm8660 \
     sensors.msm8660
 
