@@ -41,7 +41,7 @@ PRODUCT_PACKAGES += \
     init.qcom.lpm_boot.sh
 
 # msm8660
-PRODUCT_PACKAGES+= \
+PRODUCT_PACKAGES += \
     audio_policy.msm8660 \
     camera.msm8660 \
     copybit.msm8660 \
@@ -68,7 +68,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.maxlayer=3 \
     debug.mdpcomp.logs=0 \
     debug.hwc.dynThreshold=1.9 \
-    lpa.decode=true
+    lpa.decode=false
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \

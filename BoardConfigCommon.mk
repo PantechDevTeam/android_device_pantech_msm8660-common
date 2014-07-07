@@ -45,6 +45,7 @@ BOARD_USES_MMCUTILS := true
 
 # Flags
 #COMMON_GLOBAL_CFLAGS += -DQCOM_ACDB_ENABLED
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
 
 # GPS
 BOARD_USES_QCOM_GPS := true
@@ -64,9 +65,10 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 # Target info
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_KERNEL := false
+TARGET_NO_KERNEL     := false
 TARGET_NO_RADIOIMAGE := true
 #TARGET_USES_OVERLAY := true
+TARGET_USES_QCOM_BSP := true
 
 # Time - Add support for kernel user helpers and gettimeofday() in bionic
 #KERNEL_HAS_GETTIMEOFDAY_HELPER := true
