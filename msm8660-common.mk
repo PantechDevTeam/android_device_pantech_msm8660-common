@@ -84,5 +84,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #----------------------------------------------------------------------
 
-# inherit pantech/qcom-common
-$(call inherit-product-if-exists, device/pantech/qcom-common/common.mk)
+# inherit pantech/msm8x60-common
+$(call inherit-product-if-exists, device/pantech/msm8x60-common/msm8x60-common.mk)

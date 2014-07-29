@@ -18,8 +18,8 @@
 
 BOARD_VENDOR := pantech
 
-# inherit from pantech qcom-common
--include device/pantech/qcom-common/BoardConfigCommon.mk
+# inherit from pantech msm8x60-common
+-include device/pantech/msm8x60-common/BoardConfigCommon.mk
 
 #----------------------------------------------------------------------
 
