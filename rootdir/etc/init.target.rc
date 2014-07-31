@@ -124,4 +124,4 @@ on property:sys.radio.shutdown=true
 service time_daemon /system/bin/time_daemon
    class late_start
    user root
-   group root
+   group root qcom_oncrpc
