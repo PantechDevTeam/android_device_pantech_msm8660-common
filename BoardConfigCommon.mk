@@ -73,5 +73,8 @@ TARGET_USES_QCOM_BSP := true
 # Time - Add support for kernel user helpers and gettimeofday() in bionic
 #KERNEL_HAS_GETTIMEOFDAY_HELPER := true
 
+#Use CM PowerHal Variant
+TARGET_POWERHAL_VARIANT := cm
+
 # Add QC Video Enhancements flag
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
