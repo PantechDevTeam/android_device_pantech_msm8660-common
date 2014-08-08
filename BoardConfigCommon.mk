@@ -62,6 +62,12 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 TARGET_BOARD_PLATFORM := msm8660
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
+# Power/Charger
+BOARD_CHARGER_RES := device/pantech/msm8660-common/charger
+#BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
+#BOARD_BATTERY_DEVICE_NAME := "battery"
+TARGET_POWERHAL_VARIANT := cm
+
 # Target info
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 TARGET_NO_BOOTLOADER := true
@@ -72,9 +78,6 @@ TARGET_USES_QCOM_BSP := true
 
 # Time - Add support for kernel user helpers and gettimeofday() in bionic
 #KERNEL_HAS_GETTIMEOFDAY_HELPER := true
-
-#Use CM PowerHal Variant
-TARGET_POWERHAL_VARIANT := cm
 
 # Add QC Video Enhancements flag
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true

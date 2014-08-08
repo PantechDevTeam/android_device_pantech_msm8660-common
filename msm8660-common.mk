@@ -32,6 +32,11 @@ PRODUCT_COPY_FILES += device/pantech/msm8660-common/prebuilt/system/etc/thermald
 
 #----------------------------------------------------------------------
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger \
+    charger_res_images
+
 # fstab.qcom
 PRODUCT_PACKAGES += fstab.qcom
 
@@ -50,8 +55,8 @@ PRODUCT_PACKAGES += \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
     lights.msm8660 \
-    sensors.msm8660 \
-    power.msm8660
+    power.msm8660 \
+    sensors.msm8660
 
 #----------------------------------------------------------------------
 
